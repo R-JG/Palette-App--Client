@@ -1,0 +1,24 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header {
+    height: 10vh;
+    width: 100vw;
+    border-bottom: 0.3em solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button--create-palette {
+    background-color: lightblue;
+    padding: 1em;
+    margin: 3em;
+    border-radius: 1.5em;
+    border: 0.1em solid darkslateblue;
+}
