@@ -1,6 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import paletteApi from '../api/paletteApi';
 
 const App = () => {
+
+    const [palettes, setPalettes] = useState(null);
+
+    useEffect(() => {
+        paletteApi
+            .getAll()
+            .then(paletteData => setPalettes(paletteData))
+            .catch(error => console.error(error));
+    }, []);
+
+    if (!palettes) return console.log('fetching palette data...');
+
+    console.log(palettes);
 
     return (
         <div className='App'>
