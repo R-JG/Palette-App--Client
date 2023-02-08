@@ -5,6 +5,7 @@ const Palette = ({
     paletteId,
     name,
     colors,
+    editPaletteName,
     deletePalette,
 }) => {
 
@@ -17,19 +18,23 @@ const Palette = ({
     return (
         <div className='Palette'>
             <div className='palette-header'>
-                <h3>{name}</h3>
-                <div className='palette-settings-container'>
-                    {(editPaletteMode) 
-                        ? <PaletteSettingsMenu 
-                            handleDeleteButton={handleDeleteButton}
-                        />
-                        : <button 
+                {(editPaletteMode) 
+                    ? <PaletteSettingsMenu 
+                        paletteId={paletteId}
+                        name={name}
+                        handleDeleteButton={handleDeleteButton}
+                        setEditPaletteMode={setEditPaletteMode}
+                        editPaletteName={editPaletteName}
+                    />
+                    : <div className='palette-info'>
+                        <h3>{name}</h3>
+                        <button 
                             className='button--palette-settings'
                             onClick={handleSettingsButton}>
                             Settings
                         </button>
-                    }
-                </div>
+                    </div>
+                }
             </div>
         </div>
     );

@@ -23,6 +23,17 @@ const App = () => {
             .catch(error => console.error(error));
     };
 
+    const editPaletteName = (paletteId, newName) => {
+        paletteApi
+            .edit(paletteId, newName)
+            .then(updatedPalette => setPalettes(palettes.map(palette => {
+                return (palette._id === updatedPalette._id) 
+                ? updatedPalette 
+                : palette;
+            })))
+            .catch(error => console.error(error));
+    }; 
+
     const deletePalette = paletteId => {
         paletteApi
             .deletePalette(paletteId)
@@ -53,6 +64,7 @@ const App = () => {
                             paletteId={palette._id}
                             name={palette.name}
                             colors={palette.colors}
+                            editPaletteName={editPaletteName}
                             deletePalette={deletePalette}
                         />
                     )}

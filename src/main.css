@@ -95,7 +95,13 @@ button:active {
 }
 
 .palette-header {
+    height: 25%;
     width: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.palette-info {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -103,5 +109,16 @@ button:active {
 }
 
 .button--palette-settings {
-    justify-self: flex-end;
+}
+
+.PaletteSettingsMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input--palette-name {
+    width: 35%;
+    margin-inline: 1em;
 }
