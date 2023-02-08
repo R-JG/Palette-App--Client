@@ -8,4 +8,9 @@ const getAll = () => {
     return request.then(palettes => palettes.data);
 };
 
-export default { getAll };
+const create = () => {
+    const request = axios.post(baseUrl);
+    return request.then(newPalette => newPalette.data);
+};
+
+export default { getAll, create };

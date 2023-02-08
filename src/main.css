@@ -7,6 +7,27 @@ body {
     margin: 0;
 }
 
+button {
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    font-weight: 600;
+    padding: 0.3em;
+    border-radius: 1.5em;
+    border: 0.2em solid #50514F;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(0.95);
+}
+
+button:active {
+    filter: brightness(0.85);
+}
+
+
+
+
 .App {
     box-sizing: border-box;
     height: 100vh;
@@ -46,4 +67,41 @@ body {
 
 .button--create-palette:active {
     filter: brightness(0.85);
+}
+
+.palette-container {
+    margin: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Palette {
+    font-weight: 700;
+    color: var(--color-foreground);
+    height: 15em;
+    width: 15em;
+    margin: 1em;
+    border-radius: 1.5em;
+    border: 0.2em solid #50514F;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.palette-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button--palette-settings {
+    justify-self: flex-end;
 }

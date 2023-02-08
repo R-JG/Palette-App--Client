@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import paletteApi from '../api/paletteApi';
+import Palette from './Palette';
 
 const App = () => {
 
@@ -14,6 +15,8 @@ const App = () => {
 
     if (!palettes) return console.log('fetching palette data...');
 
+    const deletePalette = paletteId => {};
+
     console.log(palettes);
 
     return (
@@ -23,7 +26,19 @@ const App = () => {
                     Create Palette
                 </button>
             </header>
-            <main className='main'></main>
+            <main className='main'>
+                <div className='palette-container'>
+                    {palettes.map(palette => 
+                        <Palette 
+                            key={palette._id}
+                            paletteId={palette._id}
+                            name={palette.name}
+                            colors={palette.colors}
+                            deletePalette={deletePalette}
+                        />
+                    )}
+                </div>
+            </main>
         </div>
     );
 };
