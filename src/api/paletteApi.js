@@ -10,7 +10,12 @@ const getAll = () => {
 
 const create = () => {
     const request = axios.post(baseUrl);
-    return request.then(newPalette => newPalette.data);
+    return request.then(createdPalette => createdPalette.data);
 };
 
-export default { getAll, create };
+const deletePalette = paletteId => {
+    const request = axios.delete(`${baseUrl}/${paletteId}`);
+    return request.then(deletedPalette => deletedPalette.data);
+};
+
+export default { getAll, create, deletePalette };

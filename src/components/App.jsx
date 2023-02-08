@@ -15,14 +15,33 @@ const App = () => {
 
     if (!palettes) return console.log('fetching palette data...');
 
-    const deletePalette = paletteId => {};
+    const createPalette = () => {
+        paletteApi
+            .create()
+            .then(createdPalette => 
+                setPalettes(palettes.concat(createdPalette)))
+            .catch(error => console.error(error));
+    };
+
+    const deletePalette = paletteId => {
+        paletteApi
+            .deletePalette(paletteId)
+            .then(() => {
+                setPalettes(palettes.filter(palette => 
+                    palette._id !== paletteId
+                ));
+            })
+            .catch(error => console.error(error));
+    };
 
     console.log(palettes);
 
     return (
         <div className='App'>
             <header className='header'>
-                <button className='button--create-palette'>
+                <button 
+                    className='button--create-palette'
+                    onClick={createPalette}>
                     Create Palette
                 </button>
             </header>
