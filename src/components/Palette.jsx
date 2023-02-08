@@ -4,8 +4,9 @@ import PaletteSettingsMenu from './PaletteSettingsMenu';
 const Palette = ({
     paletteId,
     name,
+    colorCode,
     colors,
-    editPaletteName,
+    editPaletteProperties,
     deletePalette,
 }) => {
 
@@ -22,17 +23,21 @@ const Palette = ({
                     ? <PaletteSettingsMenu 
                         paletteId={paletteId}
                         name={name}
+                        colorCode={colorCode}
                         handleDeleteButton={handleDeleteButton}
                         setEditPaletteMode={setEditPaletteMode}
-                        editPaletteName={editPaletteName}
+                        editPaletteProperties={editPaletteProperties}
                     />
                     : <div className='palette-info'>
-                        <h3>{name}</h3>
-                        <button 
-                            className='button--palette-settings'
-                            onClick={handleSettingsButton}>
-                            Settings
-                        </button>
+                        <div>
+                            <h3 className='palette-name'>{name}</h3>
+                            <button 
+                                className='button--palette-settings'
+                                onClick={handleSettingsButton}>
+                                Settings
+                            </button>
+                        </div>
+                        <p className='palette-color-code'>{colorCode}</p>
                     </div>
                 }
             </div>

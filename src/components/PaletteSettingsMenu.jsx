@@ -3,20 +3,30 @@ import { useState } from 'react';
 const PaletteSettingsMenu = ({
     paletteId,
     name,
+    colorCode,
     handleDeleteButton,
     setEditPaletteMode,
-    editPaletteName,
+    editPaletteProperties,
 }) => {
 
     const [nameInputValue, setNameInputValue] = useState(name);
+    const [colorCodeInputValue, setColorCodeInputValue] = useState(colorCode);
 
     const handleInputChange = event => {
         setNameInputValue(event.target.value);
     };
 
     const handleFinishEditButton = () => {
-        if (nameInputValue !== name) {
-            editPaletteName(paletteId, nameInputValue);
+        if ((nameInputValue !== name) 
+        || (colorCodeInputValue !== colorCode)) {
+            const paletteProps = {};
+            if (nameInputValue !== name) {
+                paletteProps.name = nameInputValue;
+            };
+            if (colorCodeInputValue !== colorCode) {
+                paletteProps.colorCode = colorCodeInputValue;
+            };
+            editPaletteProperties(paletteId, paletteProps);
         };
         setEditPaletteMode(false);
     };

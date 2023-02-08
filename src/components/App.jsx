@@ -23,9 +23,9 @@ const App = () => {
             .catch(error => console.error(error));
     };
 
-    const editPaletteName = (paletteId, newName) => {
+    const editPaletteProperties = (paletteId, newPropsObj) => {
         paletteApi
-            .edit(paletteId, newName)
+            .edit(paletteId, newPropsObj)
             .then(updatedPalette => setPalettes(palettes.map(palette => {
                 return (palette._id === updatedPalette._id) 
                 ? updatedPalette 
@@ -63,8 +63,9 @@ const App = () => {
                             key={palette._id}
                             paletteId={palette._id}
                             name={palette.name}
+                            colorCode={palette.colorCode}
                             colors={palette.colors}
-                            editPaletteName={editPaletteName}
+                            editPaletteProperties={editPaletteProperties}
                             deletePalette={deletePalette}
                         />
                     )}

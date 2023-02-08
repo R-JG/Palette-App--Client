@@ -13,9 +13,9 @@ const create = () => {
     return request.then(createdPalette => createdPalette.data);
 };
 
-const edit = (paletteId, newData) => {
-    const request = axios.put(`${baseUrl}/${paletteId}`, {newData,});
-    return request.then(updatedPalette => updatedPalette.data).catch(error => console.error(error));
+const edit = (paletteId, newProps) => {
+    const request = axios.put(`${baseUrl}/${paletteId}`, newProps);
+    return request.then(updatedPalette => updatedPalette.data);
 };
 
 const deletePalette = paletteId => {

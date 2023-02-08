@@ -81,8 +81,8 @@ button:active {
 .Palette {
     font-weight: 700;
     color: var(--color-foreground);
-    height: 15em;
-    width: 15em;
+    height: 20em;
+    width: 20em;
     margin: 1em;
     border-radius: 1.5em;
     border: 0.2em solid #50514F;
@@ -95,20 +95,31 @@ button:active {
 }
 
 .palette-header {
-    height: 25%;
     width: 100%;
     display: grid;
     place-content: center;
 }
 
 .palette-info {
+    width: 100%;
+    padding: 1em;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 }
 
+.palette-name {
+    margin: 1em;
+    display: inline;
+}
+
 .button--palette-settings {
+    display: inline;
+}
+
+.palette-color-code {
+    margin: 0;
 }
 
 .PaletteSettingsMenu {
