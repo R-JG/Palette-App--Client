@@ -1,12 +1,15 @@
 const Color = ({
+    colorId,
+    paletteId,
     colorCode,
     codeType,
     editPaletteMode,
+    deleteColorFromPalette
 }) => {
 
     const handleClick = () => {
         if (editPaletteMode) {
-            // delete the color
+            deleteColorFromPalette(paletteId, colorId);
         } else {
             // copy the color code to the clipboard
         };
@@ -21,8 +24,8 @@ const Color = ({
     return (
         <div 
             className='Color'
-            style={generateColorStyleObj(colorCode, codeType)}>
-
+            style={generateColorStyleObj(colorCode, codeType)}
+            onClick={handleClick}>
         </div>
     );
 };

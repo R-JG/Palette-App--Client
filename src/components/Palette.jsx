@@ -10,6 +10,7 @@ const Palette = ({
     editPaletteProperties,
     deletePalette,
     addColorToPalette,
+    deleteColorFromPalette
 }) => {
 
     const [colorInputValue, setColorInputValue] = useState('');
@@ -70,9 +71,12 @@ const Palette = ({
                 {colors.map(color => 
                     <Color 
                         key={color._id}
+                        colorId={color._id}
+                        paletteId={paletteId}
                         colorCode={color.code}
                         codeType={color.codeType}
                         editPaletteMode={editPaletteMode}
+                        deleteColorFromPalette={deleteColorFromPalette}
                     />
                 )}
             </div>

@@ -56,6 +56,17 @@ const App = () => {
             .catch(error => console.error(error));
     };
 
+    const deleteColorFromPalette = (paletteId, colorId) => {
+        paletteApi
+            .deleteColor(paletteId, colorId)
+            .then(updatedPalette => setPalettes(palettes.map(palette => {
+                return (palette._id === updatedPalette._id) 
+                    ? updatedPalette 
+                    : palette; 
+            })))
+            .catch(error => console.error(error));
+    };
+
     return (
         <div className='App'>
             <header className='header'>
@@ -77,6 +88,7 @@ const App = () => {
                             editPaletteProperties={editPaletteProperties}
                             deletePalette={deletePalette}
                             addColorToPalette={addColorToPalette}
+                            deleteColorFromPalette={deleteColorFromPalette}
                         />
                     )}
                 </div>

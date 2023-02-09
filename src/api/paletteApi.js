@@ -30,10 +30,16 @@ const addColor = (paletteId, colorCode) => {
     return request.then(updatedPalette => updatedPalette.data);
 };
 
+const deleteColor = (paletteId, colorId) => {
+    const request = axios.delete(`${baseUrl}/${paletteId}/colors/${colorId}`);
+    return request.then(updatedPalette => updatedPalette.data);
+};
+
 export default { 
     getAll, 
     create, 
     edit, 
     deletePalette,
     addColor,
+    deleteColor
 };

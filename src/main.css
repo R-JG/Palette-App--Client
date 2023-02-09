@@ -147,6 +147,8 @@ button:active {
     height: 3em;
     width: 3em;
     margin: 0.5em;
+    border-radius: 0.8em;
+    cursor: pointer;
 }
 
 .button--add-color {
