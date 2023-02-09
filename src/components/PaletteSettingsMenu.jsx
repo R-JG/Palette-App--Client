@@ -12,7 +12,7 @@ const PaletteSettingsMenu = ({
     const [nameInputValue, setNameInputValue] = useState(name);
     const [colorCodeInputValue, setColorCodeInputValue] = useState(paletteColorCode);
 
-    const handleInputChange = event => {
+    const handleNameInputChange = event => {
         setNameInputValue(event.target.value);
     };
 
@@ -42,7 +42,7 @@ const PaletteSettingsMenu = ({
                 className='input--palette-name'
                 type='text' 
                 value={nameInputValue}
-                onChange={handleInputChange}
+                onChange={handleNameInputChange}
             />
             <button 
                 className='button--delete-palette'

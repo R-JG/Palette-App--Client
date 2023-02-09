@@ -23,4 +23,17 @@ const deletePalette = paletteId => {
     return request.then(deletedPalette => deletedPalette.data);
 };
 
-export default { getAll, create, edit, deletePalette };
+const addColor = (paletteId, colorCode) => {
+    // add the codeType as argument and property of the request payload
+    const requestBody = { color: colorCode };
+    const request = axios.post(`${baseUrl}/${paletteId}/colors`, requestBody);
+    return request.then(updatedPalette => updatedPalette.data);
+};
+
+export default { 
+    getAll, 
+    create, 
+    edit, 
+    deletePalette,
+    addColor,
+};

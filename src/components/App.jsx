@@ -28,8 +28,8 @@ const App = () => {
             .edit(paletteId, newPropsObj)
             .then(updatedPalette => setPalettes(palettes.map(palette => {
                 return (palette._id === updatedPalette._id) 
-                ? updatedPalette 
-                : palette;
+                    ? updatedPalette 
+                    : palette;
             })))
             .catch(error => console.error(error));
     }; 
@@ -42,6 +42,17 @@ const App = () => {
                     palette._id !== paletteId
                 ));
             })
+            .catch(error => console.error(error));
+    };
+
+    const addColorToPalette = (paletteId, colorCode) => {
+        paletteApi
+            .addColor(paletteId, colorCode)
+            .then(updatedPalette => setPalettes(palettes.map(palette => {
+                return (palette._id === updatedPalette._id) 
+                    ? updatedPalette 
+                    : palette;
+            })))
             .catch(error => console.error(error));
     };
 
@@ -65,6 +76,7 @@ const App = () => {
                             colors={palette.colors}
                             editPaletteProperties={editPaletteProperties}
                             deletePalette={deletePalette}
+                            addColorToPalette={addColorToPalette}
                         />
                     )}
                 </div>

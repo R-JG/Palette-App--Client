@@ -9,9 +9,20 @@ const Palette = ({
     colors,
     editPaletteProperties,
     deletePalette,
+    addColorToPalette,
 }) => {
 
+    const [colorInputValue, setColorInputValue] = useState('');
     const [editPaletteMode, setEditPaletteMode] = useState(false);
+
+    const handleColorInputChange = event => {
+        setColorInputValue(event.target.value);
+    };
+
+    const handleAddColorButton = () => {
+        addColorToPalette(paletteId, colorInputValue);
+        setColorInputValue('');
+    };
 
     const handleSettingsButton = () => setEditPaletteMode(true);
 
@@ -42,8 +53,15 @@ const Palette = ({
                     </div>
                 }
                 <div className='color-entry'>
-                    <input type='text'/>
-                    <button className='button--add-color'>
+                    <input 
+                        className='input--color'
+                        type='text'
+                        value={colorInputValue}
+                        onChange={handleColorInputChange}
+                    />
+                    <button 
+                        className='button--add-color'
+                        onClick={handleAddColorButton}>
                         +
                     </button>
                 </div>
