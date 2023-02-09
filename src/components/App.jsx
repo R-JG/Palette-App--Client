@@ -45,8 +45,6 @@ const App = () => {
             .catch(error => console.error(error));
     };
 
-    console.log(palettes);
-
     return (
         <div className='App'>
             <header className='header'>
@@ -63,7 +61,7 @@ const App = () => {
                             key={palette._id}
                             paletteId={palette._id}
                             name={palette.name}
-                            colorCode={palette.colorCode}
+                            paletteColorCode={palette.colorCode}
                             colors={palette.colors}
                             editPaletteProperties={editPaletteProperties}
                             deletePalette={deletePalette}

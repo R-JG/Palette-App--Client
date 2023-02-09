@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import Color from './Color';
 import PaletteSettingsMenu from './PaletteSettingsMenu';
 
 const Palette = ({
     paletteId,
     name,
-    colorCode,
+    paletteColorCode,
     colors,
     editPaletteProperties,
     deletePalette,
@@ -23,7 +24,7 @@ const Palette = ({
                     ? <PaletteSettingsMenu 
                         paletteId={paletteId}
                         name={name}
-                        colorCode={colorCode}
+                        paletteColorCode={paletteColorCode}
                         handleDeleteButton={handleDeleteButton}
                         setEditPaletteMode={setEditPaletteMode}
                         editPaletteProperties={editPaletteProperties}
@@ -37,9 +38,25 @@ const Palette = ({
                                 Settings
                             </button>
                         </div>
-                        <p className='palette-color-code'>{colorCode}</p>
+                        <p className='palette-color-code'>{paletteColorCode}</p>
                     </div>
                 }
+                <div className='color-entry'>
+                    <input type='text'/>
+                    <button className='button--add-color'>
+                        +
+                    </button>
+                </div>
+            </div>
+            <div className='color-container'>
+                {colors.map(color => 
+                    <Color 
+                        key={color._id}
+                        colorCode={color.code}
+                        codeType={color.codeType}
+                        editPaletteMode={editPaletteMode}
+                    />
+                )}
             </div>
         </div>
     );

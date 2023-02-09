@@ -3,14 +3,14 @@ import { useState } from 'react';
 const PaletteSettingsMenu = ({
     paletteId,
     name,
-    colorCode,
+    paletteColorCode,
     handleDeleteButton,
     setEditPaletteMode,
     editPaletteProperties,
 }) => {
 
     const [nameInputValue, setNameInputValue] = useState(name);
-    const [colorCodeInputValue, setColorCodeInputValue] = useState(colorCode);
+    const [colorCodeInputValue, setColorCodeInputValue] = useState(paletteColorCode);
 
     const handleInputChange = event => {
         setNameInputValue(event.target.value);
@@ -18,13 +18,13 @@ const PaletteSettingsMenu = ({
 
     const handleFinishEditButton = () => {
         if ((nameInputValue !== name) 
-        || (colorCodeInputValue !== colorCode)) {
+        || (colorCodeInputValue !== paletteColorCode)) {
             const paletteProps = {};
             if (nameInputValue !== name) {
                 paletteProps.name = nameInputValue;
             };
-            if (colorCodeInputValue !== colorCode) {
-                paletteProps.colorCode = colorCodeInputValue;
+            if (colorCodeInputValue !== paletteColorCode) {
+                paletteProps.paletteColorCode = colorCodeInputValue;
             };
             editPaletteProperties(paletteId, paletteProps);
         };
