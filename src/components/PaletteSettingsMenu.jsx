@@ -6,7 +6,7 @@ const PaletteSettingsMenu = ({
     paletteColorCode,
     handleDeleteButton,
     setEditPaletteMode,
-    editPaletteProperties,
+    editPaletteName,
 }) => {
 
     const [nameInputValue, setNameInputValue] = useState(name);
@@ -17,17 +17,14 @@ const PaletteSettingsMenu = ({
     };
 
     const handleFinishEditButton = () => {
-        if ((nameInputValue !== name) 
-        || (colorCodeInputValue !== paletteColorCode)) {
-            const paletteProps = {};
-            if (nameInputValue !== name) {
-                paletteProps.name = nameInputValue;
-            };
-            if (colorCodeInputValue !== paletteColorCode) {
-                paletteProps.paletteColorCode = colorCodeInputValue;
-            };
-            editPaletteProperties(paletteId, paletteProps);
+        if (nameInputValue !== name) {
+            editPaletteName(paletteId, nameInputValue);
         };
+
+        if (colorCodeInputValue !== paletteColorCode) {
+            // fix
+        };
+
         setEditPaletteMode(false);
     };
 

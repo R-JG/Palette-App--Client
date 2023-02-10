@@ -23,9 +23,9 @@ const App = () => {
             .catch(error => console.error(error));
     };
 
-    const editPaletteProperties = (paletteId, newPropsObj) => {
+    const editPaletteName = (paletteId, newName) => {
         paletteApi
-            .edit(paletteId, newPropsObj)
+            .updatePaletteName(paletteId, newName)
             .then(updatedPalette => setPalettes(palettes.map(palette => {
                 return (palette._id === updatedPalette._id) 
                     ? updatedPalette 
@@ -45,15 +45,20 @@ const App = () => {
             .catch(error => console.error(error));
     };
 
-    const addColorToPalette = (paletteId, colorCode) => {
+    const addColorToPalette = (paletteId, color) => {
+        /*
+        // convert color argument to rgb 
+        // pass rgbColor to addColor
+        
         paletteApi
-            .addColor(paletteId, colorCode)
+            .addColor(paletteId, rgbColor)
             .then(updatedPalette => setPalettes(palettes.map(palette => {
                 return (palette._id === updatedPalette._id) 
                     ? updatedPalette 
                     : palette;
             })))
             .catch(error => console.error(error));
+            */
     };
 
     const deleteColorFromPalette = (paletteId, colorId) => {
@@ -85,7 +90,7 @@ const App = () => {
                             name={palette.name}
                             paletteColorCode={palette.colorCode}
                             colors={palette.colors}
-                            editPaletteProperties={editPaletteProperties}
+                            editPaletteName={editPaletteName}
                             deletePalette={deletePalette}
                             addColorToPalette={addColorToPalette}
                             deleteColorFromPalette={deleteColorFromPalette}

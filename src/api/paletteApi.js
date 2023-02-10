@@ -13,8 +13,9 @@ const create = () => {
     return request.then(createdPalette => createdPalette.data);
 };
 
-const edit = (paletteId, newProps) => {
-    const request = axios.put(`${baseUrl}/${paletteId}`, newProps);
+const updatePaletteName = (paletteId, name) => {
+    const newNameObj = { name };
+    const request = axios.put(`${baseUrl}/${paletteId}`, newNameObj);
     return request.then(updatedPalette => updatedPalette.data);
 };
 
@@ -23,11 +24,15 @@ const deletePalette = paletteId => {
     return request.then(deletedPalette => deletedPalette.data);
 };
 
-const addColor = (paletteId, colorCode) => {
-    // add the codeType as argument and property of the request payload
-    const requestBody = { color: colorCode };
+const addColor = (paletteId, rgbColorObj) => {
+
+    // the color code needs to first be converted to rgb before being passed into this function.
+    // then send an object with a color property with r g and b properties as payload.
+    const requestBody = { /*rgbColor: { r, g, b }*/ };
+    /*
     const request = axios.post(`${baseUrl}/${paletteId}/colors`, requestBody);
     return request.then(updatedPalette => updatedPalette.data);
+    */
 };
 
 const deleteColor = (paletteId, colorId) => {
@@ -38,7 +43,7 @@ const deleteColor = (paletteId, colorId) => {
 export default { 
     getAll, 
     create, 
-    edit, 
+    updatePaletteName, 
     deletePalette,
     addColor,
     deleteColor

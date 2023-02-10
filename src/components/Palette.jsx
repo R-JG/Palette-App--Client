@@ -7,7 +7,7 @@ const Palette = ({
     name,
     paletteColorCode,
     colors,
-    editPaletteProperties,
+    editPaletteName,
     deletePalette,
     addColorToPalette,
     deleteColorFromPalette
@@ -39,7 +39,7 @@ const Palette = ({
                         paletteColorCode={paletteColorCode}
                         handleDeleteButton={handleDeleteButton}
                         setEditPaletteMode={setEditPaletteMode}
-                        editPaletteProperties={editPaletteProperties}
+                        editPaletteName={editPaletteName}
                     />
                     : <div className='palette-info'>
                         <div>
