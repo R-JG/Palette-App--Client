@@ -24,15 +24,10 @@ const deletePalette = paletteId => {
     return request.then(deletedPalette => deletedPalette.data);
 };
 
-const addColor = (paletteId, rgbColorObj) => {
-
-    // the color code needs to first be converted to rgb before being passed into this function.
-    // then send an object with a color property with r g and b properties as payload.
-    const requestBody = { /*rgbColor: { r, g, b }*/ };
-    /*
+const addColor = (paletteId, rgbColor) => {
+    const requestBody = { rgbColor };
     const request = axios.post(`${baseUrl}/${paletteId}/colors`, requestBody);
     return request.then(updatedPalette => updatedPalette.data);
-    */
 };
 
 const deleteColor = (paletteId, colorId) => {

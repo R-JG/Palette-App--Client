@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import paletteApi from '../api/paletteApi';
 import Palette from './Palette';
+import colorConverter from '../utils/colorConverter';
 
 const App = () => {
 
@@ -45,11 +46,18 @@ const App = () => {
             .catch(error => console.error(error));
     };
 
-    const addColorToPalette = (paletteId, color) => {
-        /*
-        // convert color argument to rgb 
-        // pass rgbColor to addColor
-        
+    const addColorToPalette = (paletteId, color, colorCode) => {
+        let rgbColor;
+        if (colorCode === 'hex') rgbColor = colorConverter.hexColorToRgb(color);
+        if (colorCode === 'rgb') {
+            // add validation for the different possible ways of entering the rgb value...
+            const rgbInputArray = color.split(', ');
+            rgbColor = { 
+                r: rgbInputArray[0],
+                g: rgbInputArray[1],
+                b: rgbInputArray[2]
+            }; 
+        };
         paletteApi
             .addColor(paletteId, rgbColor)
             .then(updatedPalette => setPalettes(palettes.map(palette => {
@@ -58,7 +66,6 @@ const App = () => {
                     : palette;
             })))
             .catch(error => console.error(error));
-            */
     };
 
     const deleteColorFromPalette = (paletteId, colorId) => {
@@ -88,7 +95,6 @@ const App = () => {
                             key={palette._id}
                             paletteId={palette._id}
                             name={palette.name}
-                            paletteColorCode={palette.colorCode}
                             colors={palette.colors}
                             editPaletteName={editPaletteName}
                             deletePalette={deletePalette}

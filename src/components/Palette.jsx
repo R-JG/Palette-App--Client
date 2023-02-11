@@ -5,7 +5,6 @@ import PaletteSettingsMenu from './PaletteSettingsMenu';
 const Palette = ({
     paletteId,
     name,
-    paletteColorCode,
     colors,
     editPaletteName,
     deletePalette,
@@ -13,6 +12,7 @@ const Palette = ({
     deleteColorFromPalette
 }) => {
 
+    const [colorCode, setColorCode] = useState('hex');
     const [colorInputValue, setColorInputValue] = useState('');
     const [editPaletteMode, setEditPaletteMode] = useState(false);
 
@@ -21,7 +21,7 @@ const Palette = ({
     };
 
     const handleAddColorButton = () => {
-        addColorToPalette(paletteId, colorInputValue);
+        addColorToPalette(paletteId, colorInputValue, colorCode);
         setColorInputValue('');
     };
 
@@ -36,7 +36,7 @@ const Palette = ({
                     ? <PaletteSettingsMenu 
                         paletteId={paletteId}
                         name={name}
-                        paletteColorCode={paletteColorCode}
+                        colorCode={colorCode}
                         handleDeleteButton={handleDeleteButton}
                         setEditPaletteMode={setEditPaletteMode}
                         editPaletteName={editPaletteName}
@@ -50,13 +50,17 @@ const Palette = ({
                                 Settings
                             </button>
                         </div>
-                        <p className='palette-color-code'>{paletteColorCode}</p>
+                        <p className='palette-color-code'>{colorCode}</p>
                     </div>
                 }
                 <div className='color-entry'>
                     <input 
                         className='input--color'
                         type='text'
+                        placeholder={
+                            (colorCode === 'hex') 
+                            ? '#FFFFFF' 
+                            : '255, 255, 255'}
                         value={colorInputValue}
                         onChange={handleColorInputChange}
                     />
@@ -73,8 +77,7 @@ const Palette = ({
                         key={color._id}
                         colorId={color._id}
                         paletteId={paletteId}
-                        colorCode={color.code}
-                        codeType={color.codeType}
+                        rgbColor={color}
                         editPaletteMode={editPaletteMode}
                         deleteColorFromPalette={deleteColorFromPalette}
                     />

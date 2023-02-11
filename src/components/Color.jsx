@@ -1,8 +1,7 @@
 const Color = ({
     colorId,
     paletteId,
-    colorCode,
-    codeType,
+    rgbColor,
     editPaletteMode,
     deleteColorFromPalette
 }) => {
@@ -15,16 +14,12 @@ const Color = ({
         };
     };
 
-    const generateColorStyleObj = (colorCode, codeType) => {
-        if (codeType === 'hex') {
-            return { backgroundColor: `#${colorCode}` };
-        };
-    };
-
     return (
         <div 
             className='Color'
-            style={generateColorStyleObj(colorCode, codeType)}
+            style={{ 
+                backgroundColor: `rgb(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b})` 
+            }}
             onClick={handleClick}>
         </div>
     );
