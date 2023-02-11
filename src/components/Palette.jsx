@@ -29,6 +29,11 @@ const Palette = ({
 
     const handleDeleteButton = () => deletePalette(paletteId);
 
+    const handleColorCodeClick = newCode => {
+        if (newCode === colorCode) return;
+        setColorCode(newCode)
+    };
+
     return (
         <div className='Palette'>
             <div className='palette-header'>
@@ -50,9 +55,22 @@ const Palette = ({
                                 Settings
                             </button>
                         </div>
-                        <p className='palette-color-code'>{colorCode}</p>
                     </div>
                 }
+                <div className='color-codes'>
+                    <span className={
+                        `color-codes--rgb 
+                        ${(colorCode === 'rgb') ? 'selected-code' : ''}`}
+                        onClick={() => handleColorCodeClick('rgb')}>
+                        RGB
+                    </span>
+                    <span className={
+                        `color-codes--hex 
+                        ${(colorCode === 'hex') ? 'selected-code' : ''}`}
+                        onClick={() => handleColorCodeClick('hex')}>
+                        Hex
+                    </span>
+                </div>
                 <div className='color-entry'>
                     <input 
                         className='input--color'

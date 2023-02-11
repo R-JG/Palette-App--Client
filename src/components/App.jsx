@@ -47,6 +47,7 @@ const App = () => {
     };
 
     const addColorToPalette = (paletteId, color, colorCode) => {
+        if ((!paletteId) || (!color) || (!colorCode)) return;
         let rgbColor;
         if (colorCode === 'hex') rgbColor = colorConverter.hexColorToRgb(color);
         if (colorCode === 'rgb') {

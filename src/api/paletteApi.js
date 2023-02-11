@@ -14,23 +14,27 @@ const create = () => {
 };
 
 const updatePaletteName = (paletteId, name) => {
+    if ((!paletteId) || (!name)) return;
     const newNameObj = { name };
     const request = axios.put(`${baseUrl}/${paletteId}`, newNameObj);
     return request.then(updatedPalette => updatedPalette.data);
 };
 
 const deletePalette = paletteId => {
+    if (!paletteId) return;
     const request = axios.delete(`${baseUrl}/${paletteId}`);
     return request.then(deletedPalette => deletedPalette.data);
 };
 
 const addColor = (paletteId, rgbColor) => {
+    if ((!paletteId) || (!rgbColor)) return;
     const requestBody = { rgbColor };
     const request = axios.post(`${baseUrl}/${paletteId}/colors`, requestBody);
     return request.then(updatedPalette => updatedPalette.data);
 };
 
 const deleteColor = (paletteId, colorId) => {
+    if ((!paletteId) || (!colorId)) return;
     const request = axios.delete(`${baseUrl}/${paletteId}/colors/${colorId}`);
     return request.then(updatedPalette => updatedPalette.data);
 };

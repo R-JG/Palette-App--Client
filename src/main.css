@@ -158,3 +158,21 @@ button:active {
     margin: 0.5em;
     border-radius: 0;
 }
+
+
+.color-codes--rgb {
+    padding: 0.2em;
+    margin: 1em;
+    cursor: pointer;
+}
+
+.color-codes--hex {
+    padding: 0.2em;
+    margin: 1em;
+    cursor: pointer;
+}
+
+.selected-code {
+    border-radius: 1em;
+    border: 0.3em solid black;
+}
