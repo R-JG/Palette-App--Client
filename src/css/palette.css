@@ -13,6 +13,7 @@
 }
 
 .palette-header {
+    box-sizing: border-box;
     width: 100%;
     display: grid;
     place-content: center;
@@ -20,7 +21,7 @@
 
 .palette-info {
     width: 100%;
-    padding: 1em;
+    padding-block: 1em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -36,21 +37,35 @@
     display: inline;
 }
 
+.color-codes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .color-codes--rgb {
-    padding: 0.2em;
-    margin: 1em;
+    padding: 0.3em;
+    margin-inline: 1em;
     cursor: pointer;
 }
 
 .color-codes--hex {
-    padding: 0.2em;
-    margin: 1em;
+    padding: 0.3em;
+    margin-inline: 1em;
     cursor: pointer;
 }
 
 .selected-code {
-    border-radius: 1em;
-    border: 0.3em solid black;
+    border-radius: 0.8em;
+    border: 0.17em solid var(--color-foreground);
+}
+
+.color-entry {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .button--add-color {
@@ -58,7 +73,7 @@
     width: 2em;
     padding: 0;
     margin: 0.5em;
-    border-radius: 0;
+    border-radius: 0.5em;
 }
 
 .color-container {
@@ -70,4 +85,5 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    overflow: scroll;
 }

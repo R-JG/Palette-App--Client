@@ -4,15 +4,16 @@
 }
 
 body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
 }
 
 button {
     color: var(--color-foreground);
     background-color: var(--color-background);
-    font-weight: 600;
+    font-weight: 700;
     padding: 0.3em;
-    border-radius: 1.5em;
+    border-radius: 0.8em;
     border: 0.2em solid #50514F;
     cursor: pointer;
 }

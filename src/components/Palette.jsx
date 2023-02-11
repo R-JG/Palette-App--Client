@@ -56,12 +56,12 @@ const Palette = ({
                     />
                     : <div className='palette-info'>
                         <div>
-                            <h3 className='palette-name'>{name}</h3>
                             <button 
                                 className='button--palette-settings'
                                 onClick={handleSettingsButton}>
                                 Settings
                             </button>
+                            <h3 className='palette-name'>{name}</h3>
                         </div>
                     </div>
                 }
