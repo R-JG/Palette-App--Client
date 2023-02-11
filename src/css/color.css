@@ -1,0 +1,30 @@
+.Color {
+    height: 3em;
+    width: 3em;
+    margin: 0.5em;
+    border-radius: 0.8em;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.color-overlay {
+    height: 150%;
+    width: 100%;
+    position: relative;
+    bottom: 65%;
+    display: none;
+    pointer-events: none;
+}
+
+.Color:hover {
+    border: 0.3em solid black;
+}
+
+.Color:hover .color-overlay {
+    display: block;
+    color: black;
+}
+
+.Color:active .color-overlay {
+    color: inherit;
+}

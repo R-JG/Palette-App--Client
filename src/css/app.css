@@ -1,0 +1,49 @@
+.App {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header {
+    height: 10%;
+    width: 100%;
+    padding: 0.7em;
+    border-bottom: 0.2em solid #50514F;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button--create-palette {
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    font-weight: 700;
+    padding: 1em;
+    margin: 3em;
+    border-radius: 1.5em;
+    border: 0.2em solid #50514F;
+    cursor: pointer;
+}
+
+.button--create-palette:hover {
+    filter: brightness(0.95);
+}
+
+.button--create-palette:active {
+    filter: brightness(0.85);
+}
+
+.palette-container {
+    margin: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import paletteApi from '../api/paletteApi';
 import Palette from './Palette';
 import colorConverter from '../utils/colorConverter';
+import '../css/app.css';
 
 const App = () => {
 

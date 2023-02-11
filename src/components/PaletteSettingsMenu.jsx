@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../css/paletteSettingsMenu.css';
 
 const PaletteSettingsMenu = ({
     paletteId,

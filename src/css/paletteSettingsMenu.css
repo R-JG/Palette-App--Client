@@ -1,0 +1,11 @@
+.PaletteSettingsMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input--palette-name {
+    width: 35%;
+    margin-inline: 1em;
+}

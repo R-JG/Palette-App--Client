@@ -1,0 +1,26 @@
+:root {
+    --color-foreground: #50514F;
+    --color-background: #F7F9F9;
+}
+
+body {
+    margin: 0;
+}
+
+button {
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    font-weight: 600;
+    padding: 0.3em;
+    border-radius: 1.5em;
+    border: 0.2em solid #50514F;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(0.95);
+}
+
+button:active {
+    filter: brightness(0.85);
+}

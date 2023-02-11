@@ -1,7 +1,10 @@
+import '../css/color.css';
+
 const Color = ({
     colorId,
     paletteId,
     rgbColor,
+    copyColor,
     editPaletteMode,
     deleteColorFromPalette
 }) => {
@@ -10,7 +13,7 @@ const Color = ({
         if (editPaletteMode) {
             deleteColorFromPalette(paletteId, colorId);
         } else {
-            // copy the color code to the clipboard
+            navigator.clipboard.writeText(copyColor);
         };
     };
 
@@ -18,9 +21,13 @@ const Color = ({
         <div 
             className='Color'
             style={{ 
+                color: `rgb(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b})`,
                 backgroundColor: `rgb(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b})` 
             }}
             onClick={handleClick}>
+            {editPaletteMode 
+                ? <div className='color-overlay'>Delete</div> 
+                : <div className='color-overlay'>Copy</div>}
         </div>
     );
 };

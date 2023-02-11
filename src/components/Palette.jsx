@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Color from './Color';
 import PaletteSettingsMenu from './PaletteSettingsMenu';
+import colorConverter from '../utils/colorConverter';
+import '../css/palette.css';
 
 const Palette = ({
     paletteId,
@@ -32,6 +34,12 @@ const Palette = ({
     const handleColorCodeClick = newCode => {
         if (newCode === colorCode) return;
         setColorCode(newCode)
+    };
+
+    const generateCopyCode = rgbColor => {
+        const { r, g, b } = rgbColor;
+        if (colorCode === 'hex') return colorConverter.rgbToHexColor(r, g, b);
+        if (colorCode === 'rgb') return `${r}, ${g}, ${b}`;
     };
 
     return (
@@ -96,6 +104,7 @@ const Palette = ({
                         colorId={color._id}
                         paletteId={paletteId}
                         rgbColor={color}
+                        copyColor={generateCopyCode(color)}
                         editPaletteMode={editPaletteMode}
                         deleteColorFromPalette={deleteColorFromPalette}
                     />
